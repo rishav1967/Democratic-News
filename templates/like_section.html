@@ -1,0 +1,6 @@
+
+{{ post.like.count }}
+<form action="{% url 'posts:post_like' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" name="like_button" id="like-button" value="{{ post.id }}" class="btn btn-primary">Like</button>
+</form>

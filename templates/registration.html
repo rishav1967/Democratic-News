@@ -1,0 +1,255 @@
+{% load static %}
+
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}">
+    
+<!------ Include the above in your HEAD tag ---------->
+
+<form class="form-horizontal" action='' method="POST">
+  {% csrf_token %}
+  {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color:red">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        
+        {% endif %}
+  <fieldset>
+    {% csrf_token %}
+    <div id="legend">
+      <legend class="logo text-center">Register</legend>
+    </div>
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="username">Username</label>
+      <div class="controls">
+        {% csrf_token %}
+        <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+        
+      </script>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      {% csrf_token %}
+      <!-- Password-->
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+        <p class="help-block">Password should be at least 6 characters</p>
+      </div>
+    </div>
+   
+    <div class="control-group">
+      {% csrf_token %}
+      <!-- Password -->
+      <label class="control-label"  for="password_confirm">Password (Confirm)</label>
+      <div class="controls">
+        <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
+        <p class="help-block">Please confirm password</p>
+      </div>
+    </div>
+    <div class="control-group">
+      {% csrf_token %}
+      <!-- Password-->
+      <label class="control-label" for="dob">Date_of_birth</label>
+      <div class="controls">
+        <input type="date" id="dob" name="dob" placeholder="dd-mm-yyyy" class="input-xlarge">
+        <p class="help-block">Password should be at least 6 characters</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      {% csrf_token %}
+      <!-- Button -->
+      <div class="controls">
+        <div>
+        </div>
+        <button class="btn btn-success">Register</button> already have an account
+        <a href="{% url 'login' %}"  class="btn btn-primary" >LOGIN</a>
+
+      </div>
+    </div>
+   </fieldset> 
+</form> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

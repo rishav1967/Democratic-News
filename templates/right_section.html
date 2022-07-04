@@ -1,0 +1,6 @@
+
+{{ post.right.count }}
+<form action="{% url 'posts:right_section' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" name="post_id" id="right-button" value="{{ post.id }}" class="btn btn-primary">Right Wing</button>
+</form>

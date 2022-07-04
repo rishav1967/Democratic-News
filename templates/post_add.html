@@ -1,0 +1,9 @@
+{% extends "h.html" %}
+{% block content %}
+<h1>Add post</h1>
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="text" name="" id="">
+  <input type="submit" value="submit" class="btn btn-secondary">
+</form>
+{% endblock %}

@@ -1,0 +1,16 @@
+
+
+{{ post.center.count }}
+{% if request.user in post.center.all %}
+<form action="{% url 'posts:center_section' %}" method="POST">
+    {% csrf_token %}
+
+    <button type="submit" name="post_id" id="center-button" value="{{ post.id }}" class="btn btn-primary">Remove Center</button>
+</form>
+{% else %}
+<form action="{% url 'posts:center_section' %}" method="POST">
+    {% csrf_token %}
+
+    <button type="submit" name="post_id" id="center-button" value="{{ post.id }}" class="btn btn-primary">Center</button>
+</form>
+{% endif %}

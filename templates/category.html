@@ -1,0 +1,9 @@
+<form action="" method="POST">
+    {% csrf_token %}
+    <button type="submit" formaction = "{% url 'movie' %}" name="Movie" id="left-button" value="Movie" class="btn btn-primary">Movie</button>
+    <button type="submit" formaction = "{% url 'music' %}" name="Music" id="left-button" value="Music" class="btn btn-primary">Music</button>
+    <button type="submit" formaction = "{% url 'covid' %}" name="Covid" id="left-button" value="Covid" class="btn btn-primary">Covid</button>
+    <button type="submit" formaction = "{% url 'sports' %}" name="Sports" id="left-button" value="Sports" class="btn btn-primary">Sports</button>
+    <button type="submit" formaction = "{% url 'global' %}" name="Global" id="left-button" value="Global" class="btn btn-primary">Global</button>
+
+</form>

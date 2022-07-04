@@ -1,0 +1,206 @@
+{% extends "h.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/postdetail.css' %}">
+
+<div class="main">
+
+    <div id="title">
+        <h1>{{ post.title }}</h1>
+    </div>
+    <div id="author">
+        <a href="">{{ post.author.username }}</a>
+    </div>
+    <span>
+        <p>last updated-{{ post.updated }}</p>
+    </span>
+
+    <div id="modify">
+        {% csrf_token %}
+        {% if post.author == request.user %}
+        <span>
+        <a href="{% url 'posts:post_update' post.pk post.slug %}">Update</a>
+        </span>
+        <span>
+        <a href="{% url 'posts:post_delete' post.pk post.slug %}">Delete</a>
+        </span>
+
+        {% endif %}
+    </div>
+
+
+    <div id="image">
+    {% if post.image %}
+        <div class="img-container">
+            <img src="{{ post.img }}" alt="">
+        </div>
+    {% else %}
+        <div class="img-container">
+            <img src="{% static 'images/newslogo.png' %}" alt="">
+        </div>
+
+    {% endif %}
+    </div>
+    <div id="body">
+        <p>{{ post.body }}</p>
+    </div>
+
+
+    
+</div>
+
+<div id="like-section">
+    
+        
+
+        
+
+        
+
+        <div id="vote" id="like-section">
+            {% include 'like_section.html' %}
+        </div>
+
+
+        <div id="vote" id="center-section">
+            {% include 'center_section.html' %}
+        </div>
+
+
+        <div id="vote" id="left-section">
+            {% include 'left_section.html' %}
+        </div>
+
+
+
+        <div id="vote" id="right-section">
+            {% include 'right_section.html' %}
+        </div>
+
+
+        <div id="vote" id="propaganda-section">
+            {% include 'propaganda_section.html' %}
+        </div>
+
+
+
+        <div id="vote" id="fake_news-section">
+            {% include 'fake_news_section.html' %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- 
+<br>
+
+<br>
+<br>
+ -->
+
+<div class="container mb-5 mt-5">
+    
+    <div class="card">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center mb-5"> Comment section </h3>
+
+                <p>Write comment</p>
+
+<br>
+ <form action="{% url 'posts:post_comment' post.id %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="comment" id="">
+    <input type="submit" value="Submit">
+</form> 
+                {% if comments %}
+                {% for comment in comments %}
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="media"> <img 
+                                style="vertical-align: middle;
+                                                width: 50px;
+                                                height: 50px;
+                                                border-radius: 50%;"
+                                class="mr-3 rounded-circle" alt="Bootstrap Media Preview" src="{{ comment.author.profile_image.url }}" />
+                                <div class="media-body">
+                                    <div class="row">
+                                        <div class="col-8 d-flex">
+                                            <h5>{{ request.user.username }}</h5> <span>- 2 hours ago</span>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="pull-right reply"> <a href="{% url 'posts:comment_reply' comment.id %}"><span><i class="fa fa-reply"></i>
+                                                        reply</span></a> </div>
+                                        </div>
+                                    </div>
+                                     {{ comment.body }}
+                                     <br>
+                                     
+                                    <a href="{% url 'posts:comment_delete' comment.id %}" >Delete-comment</a>
+                                    <div>
+                                        <form action="{% url 'posts:comment_reply' comment.id %}" method="POST">
+                                            {% csrf_token %}
+                                            <input type="text" name="reply" id="">
+                                            <button type="submit" class="btn btn-primary">Reply</button>
+
+                                        </form>
+                                    </div> 
+                                    <div id="reply-container">
+                                    {% for reply in reply %}
+                                    
+                                    {% if comment == reply.comment %}
+                                    <div class="media mt-4"> <a class="pr-3" href="#"><img
+                                                class="rounded-circle" alt="Bootstrap Media Another Preview"
+                                                src="{{ reply.author.profile_image.url }}" style="vertical-align: middle;
+                                                width: 20px;
+                                                height: 20px;
+                                                border-radius: 50%;" class="img-thumbnail" alt="..."></a>
+
+                                            
+                                         <div class="media-body">
+                                            <div class="row">
+                                                <div class="col-12 d-flex">
+                                                    <div>
+                                                    <P>REPLIED TO-{{ reply.comment.author.username }}</P>
+                                                    </div>
+
+                                                    <br>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </div>
+                                    
+                                            </div> 
+                                            {{ reply.author.username }}
+                                            <br>
+                                            {{ reply.body }}
+                                            <br>
+                                            <a href="{% url 'posts:reply_delete' reply.id %}">Delete-reply</a>
+                                        </div> 
+                                        {% endif %}
+                                            {% endfor %}
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+

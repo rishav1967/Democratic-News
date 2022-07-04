@@ -1,0 +1,18 @@
+#vote{
+      display: inline-block;
+}
+
+#modify > span {
+      margin-top: 5px;
+      margin-bottom: 2px;
+      display: inline-block;
+      background-color: white;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding:10px;
+    }
+
+#reply-container{
+      display: inline-block;
+      margin-left: 205;
+}

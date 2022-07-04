@@ -1,0 +1,9 @@
+
+{{ post.fake_news.count }}
+<form action="{% url 'posts:fake_news_section' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" name="post_id" id="fake_news-button" value="{{ post.id }}" class="btn btn-primary">Fake News</button>
+</form>
+<style>
+   
+</style>

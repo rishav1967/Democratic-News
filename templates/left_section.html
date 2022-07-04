@@ -1,0 +1,12 @@
+{{ post.left.count }}
+{% if request.user in post.left.all %}
+<form action="{% url 'posts:left_section' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" name="post_id" id="left-button" value="{{ post.id }}" class="btn btn-primary"> Remove Left Wing</button>
+</form>
+{% else %}
+<form action="{% url 'posts:left_section' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" name="post_id" id="left-button" value="{{ post.id }}" class="btn btn-primary">Left Wing</button>
+</form>
+{% endif %}

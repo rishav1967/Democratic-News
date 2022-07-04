@@ -1,0 +1,46 @@
+
+
+
+{% extends "h.html" %}
+{% block content %}
+{% for post in posts %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}">
+    
+
+  
+  <div class="main">
+
+    <!--cards -->
+   
+   <div class="card">
+   
+   <div class="image">
+    {% if post.image %}
+    <img src="{{ post.image }}" src="..." alt="Card image cap">
+  {% elif post.image2 %}
+<img src="{{ post.image2.url }}" src="..." alt="cap">
+  {% endif %}   </div>
+   <div class="title">
+    <h1>
+   {{ post.title }}</h1>
+   </div>
+   <div class="des">
+   <a id="readmore" href="{{ post.get_absolute_url }}">Read More</a>
+   
+   </div>
+   </div>
+
+
+
+
+
+
+   </div>
+
+
+  {% endfor %}
+
+
+
+{% endblock %}

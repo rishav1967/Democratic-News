@@ -1,0 +1,6 @@
+
+{{ post.propaganda.count }}
+<form action="{% url 'posts:post_like' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" name="post_id" id="propaganda-button" value="{{ post.id }}" class="btn btn-primary">Propaganda</button>
+</form>
